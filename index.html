@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121214;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00ff88;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #8a8a93;
+            font-size: 1.1rem;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .sound-card {
+            background: #1e1e24;
+            border: 2px solid #2a2a32;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 140px;
+        }
+
+        .sound-card:hover {
+            transform: translateY(-5px);
+            border-color: #00ff88;
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.1);
+        }
+
+        .sound-card:active {
+            transform: translateY(1px);
+        }
+
+        .sound-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #e1e1e6;
+        }
+
+        .play-icon {
+            font-size: 1.5rem;
+            color: #00ff88;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Sound Dashboard</h1>
+        <p>Click on a tile to play the sound effect</p>
+    </header>
+
+    <main class="dashboard-grid">
+
+        <div class="sound-card" onclick="playSound('sound1')">
+            <div class="sound-title">Explosion</div>
+            <div class="play-icon">▶</div>
+            <audio id="sound1" src="sounds/esplosione.mp3"></audio>
+        </div>
+
+        <div class="sound-card" onclick="playSound('sound2')">
+            <div class="sound-title">Laser</div>
+            <div class="play-icon">▶</div>
+            <audio id="sound2" src="sounds/laser.mp3"></audio>
+        </div>
+
+        <div class="sound-card" onclick="playSound('sound3')">
+            <div class="sound-title">Vittoria</div>
+            <div class="play-icon">▶</div>
+            <audio id="sound3" src="sounds/vittoria.mp3"></audio>
+        </div>
+
+        <div class="sound-card" onclick="playSound('sound4')">
+            <div class="sound-title">Game Over</div>
+            <div class="play-icon">▶</div>
+            <audio id="sound4" src="sounds/gameover.mp3"></audio>
+        </div>
+
+        <div class="sound-card" onclick="playSound('sound5')">
+            <div class="sound-title">Moneta</div>
+            <div class="play-icon">▶</div>
+            <audio id="sound5" src="sounds/moneta.mp3"></audio>
+        </div>
+
+        <div class="sound-card" onclick="playSound('sound6')">
+            <div class="sound-title">Notifica</div>
+            <div class="play-icon">▶</div>
+            <audio id="sound6" src="sounds/notifica.mp3"></audio>
+        </div>
+
+    </main>
+
+    <script>
+        function playSound(id) {
+            const audio = document.getElementById(id);
+            if (audio) {
+                audio.currentTime = 0; // Ricomincia da capo se cliccato ripetutamente
+                audio.play();
+            }
+        }
+    </script>
+
+</body>
+
+</html>
