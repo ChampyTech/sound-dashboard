@@ -2,6 +2,7 @@
 <html lang="it">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sound Dashboard</title>
@@ -86,62 +87,47 @@
             color: #00ff88;
         }
     </style>
+
 </head>
 
 <body>
 
     <header>
         <h1>Sound Dashboard</h1>
-        <p>Click on a tile to play the sound effect</p>
+        <p>Clicca su una tessera per riprodurre l'effetto sonoro</p>
     </header>
 
     <main class="dashboard-grid">
 
-        <div class="sound-card" onclick="playSound('sound1')">
-            <div class="sound-title">Explosion</div>
+        <div class="sound-card" onclick="playSound('esplosione')">
+            <div class="sound-title">Esplosione</div>
             <div class="play-icon">▶</div>
-            <audio id="sound1" src="sounds/esplosione.mp3"></audio>
         </div>
 
-        <div class="sound-card" onclick="playSound('sound2')">
+        <div class="sound-card" onclick="playSound('laser')">
             <div class="sound-title">Laser</div>
             <div class="play-icon">▶</div>
-            <audio id="sound2" src="sounds/laser.mp3"></audio>
         </div>
 
-        <div class="sound-card" onclick="playSound('sound3')">
+        <div class="sound-card" onclick="playSound('vittoria')">
             <div class="sound-title">Vittoria</div>
             <div class="play-icon">▶</div>
-            <audio id="sound3" src="sounds/vittoria.mp3"></audio>
         </div>
 
-        <div class="sound-card" onclick="playSound('sound4')">
+        <div class="sound-card" onclick="playSound('gameover')">
             <div class="sound-title">Game Over</div>
             <div class="play-icon">▶</div>
-            <audio id="sound4" src="sounds/gameover.mp3"></audio>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sound5')">
-            <div class="sound-title">Moneta</div>
-            <div class="play-icon">▶</div>
-            <audio id="sound5" src="sounds/moneta.mp3"></audio>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sound6')">
-            <div class="sound-title">Notifica</div>
-            <div class="play-icon">▶</div>
-            <audio id="sound6" src="sounds/notifica.mp3"></audio>
         </div>
 
     </main>
 
     <script>
-        function playSound(id) {
-            const audio = document.getElementById(id);
-            if (audio) {
-                audio.currentTime = 0; // Ricomincia da capo se cliccato ripetutamente
-                audio.play();
-            }
+        const audioPlayer = new Audio();
+
+        function playSound(soundName) {
+            audioPlayer.src = `sounds/${soundName}.mp3`;
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
         }
     </script>
 
