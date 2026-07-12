@@ -42,12 +42,32 @@
             font-size: 1.1rem;
         }
 
+        .dashboard-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+
+        .sound-section {
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #e1e1e6;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #2a2a32;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
         .dashboard-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
             width: 100%;
-            max-width: 1200px;
         }
 
         .sound-card {
@@ -93,758 +113,771 @@
 <body>
 
     <header>
+
         <h1>Sound Dashboard</h1>
         <p>Clicca su una tessera per riprodurre l'effetto sonoro</p>
+
     </header>
 
-    <main class="dashboard-grid">
-
-        <div class="sound-card" onclick="playSound('ahahahaha_mucca')">
-            <div class="sound-title">Ahahahaha Mucca</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('avvio_windows_3_1')">
-            <div class="sound-title">Avvio Windows 3.1</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('avvio_windows_xp')">
-            <div class="sound-title">Avvio Windows XP</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('dio_bestia_che_cane_ragazzi')">
-            <div class="sound-title">Dio Bestia Che Cane Ragazzi</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('dio_cane_cane_dio')">
-            <div class="sound-title">Dio Cane Cane Dio</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('dio_cane_yeah')">
-            <div class="sound-title">Dio Cane Yeah</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('errore_windows_xp_remix')">
-            <div class="sound-title">Errore Windows XP Remix</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('errore_windows_xp')">
-            <div class="sound-title">Errore Windows XP</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('esplosione')">
-            <div class="sound-title">Esplosione</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('fbi_open_up')">
-            <div class="sound-title">FBI Open Up</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('giornos_theme')">
-            <div class="sound-title">Giorno's Theme</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('jojo_windows_xp')">
-            <div class="sound-title">JoJo Windows XP</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('livello_completato_super_mario')">
-            <div class="sound-title">Livello Completato Super Mario</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('mario_bros_game_over')">
-            <div class="sound-title">Mario Bros Game Over</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('mario_star_power')">
-            <div class="sound-title">Mario Star Power</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('notifica_discord')">
-            <div class="sound-title">Notifica Discord</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('pacman_game_over')">
-            <div class="sound-title">Pacman Game Over</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('risata_ziqo')">
-            <div class="sound-title">Risata Ziqo</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('salto_super_mario_bros')">
-            <div class="sound-title">Salto Super Mario Bros</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('shutdown_windows_xp')">
-            <div class="sound-title">Shutdown Windows XP</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('super_mario_bros_beedoo')">
-            <div class="sound-title">Super Mario Bros Beedoo</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('to_be_continued')">
-            <div class="sound-title">To Be Continued</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('tubo_di_metallo')">
-            <div class="sound-title">Tubo di Metallo</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('what')">
-            <div class="sound-title">'What'</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('1_000_000_000_iq')">
-            <div class="sound-title">1,000,000,000 IQ</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('apple_pay')">
-            <div class="sound-title">Apple Pay</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('cagatevi_addosso')">
-            <div class="sound-title">Cagatevi Addosso</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('check_mark')">
-            <div class="sound-title">Check Mark</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('ciao_sono_darwin')">
-            <div class="sound-title">Ciao Sono Darwin</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('couscous_merguez')">
-            <div class="sound-title">Couscous Merguez</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('ding')">
-            <div class="sound-title">Ding</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('e_sti_cazzi')">
-            <div class="sound-title">E Sti Cazzi</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('esplosione_coca_cola')">
-            <div class="sound-title">Esplosione Coca Cola</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('fahhhhh')">
-            <div class="sound-title">FAHHHHH</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('flauto_harry_potter')">
-            <div class="sound-title">Flauto Harry Potter</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('indian_song')">
-            <div class="sound-title">Indian Song</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('oh_hi_thanks_for_checking_in')">
-            <div class="sound-title">Oh Hi, Thanks For Checking In</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('oh_my_god_wow')">
-            <div class="sound-title">Oh My God Wow</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('oof_minecraft')">
-            <div class="sound-title">Oof Minecraft</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('oooh_my_god')">
-            <div class="sound-title">Oooh My God</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('rizz')">
-            <div class="sound-title">Rizz</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('scoreggia')">
-            <div class="sound-title">Scoreggia</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sigma')">
-            <div class="sound-title">Sigma</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('strange')">
-            <div class="sound-title">Strange</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('suoneria_italian_brainrot')">
-            <div class="sound-title">Suoneria Italian Brainrot</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('vai_a_letto')">
-            <div class="sound-title">Vai A Letto</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('walmart_self_checkout')">
-            <div class="sound-title">Walmart Self Checkout</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('what_wtf')">
-            <div class="sound-title">What WTF</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('wtf_is_a_kilometer')">
-            <div class="sound-title">WTF Is A Kilometer</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('wtf_boom')">
-            <div class="sound-title">WTF Boom</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('well_be_right_back')">
-            <div class="sound-title">We'll Be Right Back</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('illuminati')">
-            <div class="sound-title">Illuminati</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('spiderman')">
-            <div class="sound-title">Spiderman</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('splash_boostato')">
-            <div class="sound-title">Splash Boostato</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('splash')">
-            <div class="sound-title">Splash</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('transizione_batman')">
-            <div class="sound-title">Transizione Batman</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('this_is_harry_potter')">
-            <div class="sound-title">This Is Harry Potter</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('batman_epic')">
-            <div class="sound-title">Batman Epic</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('chipi_chipi_chapa_chapa')">
-            <div class="sound-title">Chipi Chipi Chapa Chapa</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('ciao_user')">
-            <div class="sound-title">Ciao User</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('67_testy_crousty')">
-            <div class="sound-title">67 Testy Crousty</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('six_seven')">
-            <div class="sound-title">Six Seven</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('you_gotta_put_the_cd')">
-            <div class="sound-title">You Gotta Put the CD</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('oops_esplosione')">
-            <div class="sound-title">Oops Esplosione</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('noiiiiice')">
-            <div class="sound-title">Noiiiiice</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('noice')">
-            <div class="sound-title">Noice</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sad_trumpet_1')">
-            <div class="sound-title">Sad Trumpet 1</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sad_trumpet_2')">
-            <div class="sound-title">Sad Trumpet 2</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sad_trumpet_3')">
-            <div class="sound-title">Sad Trumpet 3</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('teresa')">
-            <div class="sound-title">Teresa</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('berlusconi_poveri_comunisti')">
-            <div class="sound-title">Berlusconi Poveri Comunisti</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('allarme_froci')">
-            <div class="sound-title">Allarme Froci</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('allarme_aura')">
-            <div class="sound-title">Allarme Aura</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('qualcuno_ha_detto')">
-            <div class="sound-title">Qualcuno Ha Detto</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('china_ringing_phone')">
-            <div class="sound-title">China Ringing Phone</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('stacca_stacca')">
-            <div class="sound-title">STACCA STACCA</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('its_raining_tacos')">
-            <div class="sound-title">It's Raining Tacos</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('im_a_genius')">
-            <div class="sound-title">I'm a Genius</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('get_me_to_a_bathroom')">
-            <div class="sound-title">Get Me to a Bathroom</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('meloni_errore_mio')">
-            <div class="sound-title">Meloni Errore Mio</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('giorgia_meloni')">
-            <div class="sound-title">Giorgia Meloni</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('renzi_game_over')">
-            <div class="sound-title">Renzi Game Over</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('first_reaction_shock')">
-            <div class="sound-title">First Reaction Shock</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_1')">
-            <div class="sound-title">Germano Mosconi 1</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_2')">
-            <div class="sound-title">Germano Mosconi 2</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_3')">
-            <div class="sound-title">Germano Mosconi 3</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_4')">
-            <div class="sound-title">Germano Mosconi 4</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_5')">
-            <div class="sound-title">Germano Mosconi 5</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_6')">
-            <div class="sound-title">Germano Mosconi 6</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_7')">
-            <div class="sound-title">Germano Mosconi 7</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_8')">
-            <div class="sound-title">Germano Mosconi 8</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('germano_mosconi_9')">
-            <div class="sound-title">Germano Mosconi 9</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('villager')">
-            <div class="sound-title">Villager</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('spongebob_fail')">
-            <div class="sound-title">Spongebob Fail</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('john_cena')">
-            <div class="sound-title">JOHN CENA</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('minkia_subbito')">
-            <div class="sound-title">Minkia Subbito</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('you_are_an_idiot')">
-            <div class="sound-title">You Are An Idiot</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('among_us_reveal')">
-            <div class="sound-title">Among Us Reveal</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('amogus')">
-            <div class="sound-title">Amogus</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('amogus_beatbox')">
-            <div class="sound-title">Amogus Beatbox</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('bruh')">
-            <div class="sound-title">Bruh</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('amogus_boostato')">
-            <div class="sound-title">Amogus Boostato</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('putin_walking')">
-            <div class="sound-title">Putin Walking</div>
-            <div class="play-icon">▶</div>
-        </div>
-        
-        <div class="sound-card" onclick="playSound('67')">
-            <div class="sound-title">67</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('cicciogamer89_esulta_il_napoli')">
-            <div class="sound-title">Cicciogamer89 Esulta Il Napoli</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('do_veto_more')">
-            <div class="sound-title">Do Veto More</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('eh_volevi')">
-            <div class="sound-title">Eh Volevi</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('emotional_damage')">
-            <div class="sound-title">Emotional Damage</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('forza_napoli_skibidi_boppy')">
-            <div class="sound-title">Forza Napoli Skibidi Boppy</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('hakuna_matata_ragazzi')">
-            <div class="sound-title">Hakuna Matata Ragazzi</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('kirby_dance')">
-            <div class="sound-title">Kirby Dance</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('kirby_dream_land_theme_song')">
-            <div class="sound-title">Kirby Dream Land Theme Song</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('mi_piasce_voto_diesci')">
-            <div class="sound-title">Mi Piasce Voto Diesci</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('napoli_torna_campione')">
-            <div class="sound-title">Napoli Torna Campione</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('polaretti')">
-            <div class="sound-title">Polaretti</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('polaretti_originale')">
-            <div class="sound-title">Polaretti Originale</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('pronto_bisseria')">
-            <div class="sound-title">Pronto Bisseria</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('tarantella_napoletana')">
-            <div class="sound-title">Tarantella Napoletana</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('tg1')">
-            <div class="sound-title">TG1</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('what_the_hell')">
-            <div class="sound-title">What The Hell</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('hanno_ucciso')">
-            <div class="sound-title">Hanno Ucciso</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('io_sono_giorgia')">
-            <div class="sound-title">Io Sono Giorgia</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('ah_non_lo_so_io')">
-            <div class="sound-title">Ah Non Lo So Io</div>
-            <div class="play-icon">▶</div>
-        </div>
-        
-        <div class="sound-card" onclick="playSound('carte_co_la_colla')">
-            <div class="sound-title">Carte Co La Colla</div>
-            <div class="play-icon">▶</div>
-        </div>
-        
-        <div class="sound-card" onclick="playSound('chi_e_quel_mona')">
-            <div class="sound-title">Chi E Quel Mona</div>
-            <div class="play-icon">▶</div>
-        </div>
-        
-        <div class="sound-card" onclick="playSound('dio_bubu')">
-            <div class="sound-title">Dio Bubu</div>
-            <div class="play-icon">▶</div>
-        </div>
-        
-        <div class="sound-card" onclick="playSound('ma_che_oooh')">
-            <div class="sound-title">Ma Che Oooh</div>
-            <div class="play-icon">▶</div>
-        </div>
-        
-        <div class="sound-card" onclick="playSound('no_no_vai_in_mona')">
-            <div class="sound-title">No No Vai In Mona</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('tamburo_battuta')">
-            <div class="sound-title">Battuta</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('tamburo_suspense')">
-            <div class="sound-title">Tamburo Suspense</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('ti_devo_dire')">
-            <div class="sound-title">Ti Devo Dire</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('lerolerolero')">
-            <div class="sound-title">lerolerolero</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('kaboom_yes_rico')">
-            <div class="sound-title">Kaboom! Yes Rico, kaboom</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('jugenmujugenmwtf')">
-            <div class="sound-title">Jugenmujugenmwtf</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('andiamo_ragazzi')">
-            <div class="sound-title">Andiamo Ragazzi</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sere_nere')">
-            <div class="sound-title">Sere Nere</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('porco_dio_cane_remix')">
-            <div class="sound-title">Porco dio cane remix</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('scusatemi_eh')">
-            <div class="sound-title">Scusatemi eh</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('scary_sound')">
-            <div class="sound-title">Scary sound</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('le_tagliatelle_del_porco_dio')">
-            <div class="sound-title">Le tagliatelle del porco dio</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('hanno_ucciso_2')">
-            <div class="sound-title">Hanno ucciso 2</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sono_giapponese')">
-            <div class="sound-title">Sono giapponese</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('whatsapp')">
-            <div class="sound-title">WhatsApp</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('sei_un_coglione')">
-            <div class="sound-title">Sei un coglione</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('suoneria_huawei')">
-            <div class="sound-title">Suoneria Huawei</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('hang_up_call')">
-            <div class="sound-title">Hang up call</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('allahu_akbar')">
-            <div class="sound-title">Allahu akbar</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('never_gonna_give_you_up')">
-            <div class="sound-title">Never gonna give you up</div>
-            <div class="play-icon">▶</div>
-        </div>
-
-        <div class="sound-card" onclick="playSound('rickroll')">
-            <div class="sound-title">Rickroll</div>
-            <div class="play-icon">▶</div>
-        </div>
+    <main class="dashboard-container">
+
+        <section class="sound-section">
+
+            <h2 class="section-title">Intanto questa sezione</h2>
+
+            <div class="dashboard-grid">
+
+                <div class="sound-card" onclick="playSound('ahahahaha_mucca')">
+                    <div class="sound-title">Ahahahaha Mucca</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('avvio_windows_3_1')">
+                    <div class="sound-title">Avvio Windows 3.1</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('avvio_windows_xp')">
+                    <div class="sound-title">Avvio Windows XP</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('dio_bestia_che_cane_ragazzi')">
+                    <div class="sound-title">Dio Bestia Che Cane Ragazzi</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('dio_cane_cane_dio')">
+                    <div class="sound-title">Dio Cane Cane Dio</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('dio_cane_yeah')">
+                    <div class="sound-title">Dio Cane Yeah</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('errore_windows_xp_remix')">
+                    <div class="sound-title">Errore Windows XP Remix</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('errore_windows_xp')">
+                    <div class="sound-title">Errore Windows XP</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('esplosione')">
+                    <div class="sound-title">Esplosione</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('fbi_open_up')">
+                    <div class="sound-title">FBI Open Up</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('giornos_theme')">
+                    <div class="sound-title">Giorno's Theme</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('jojo_windows_xp')">
+                    <div class="sound-title">JoJo Windows XP</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('livello_completato_super_mario')">
+                    <div class="sound-title">Livello Completato Super Mario</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('mario_bros_game_over')">
+                    <div class="sound-title">Mario Bros Game Over</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('mario_star_power')">
+                    <div class="sound-title">Mario Star Power</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('notifica_discord')">
+                    <div class="sound-title">Notifica Discord</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('pacman_game_over')">
+                    <div class="sound-title">Pacman Game Over</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('risata_ziqo')">
+                    <div class="sound-title">Risata Ziqo</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('salto_super_mario_bros')">
+                    <div class="sound-title">Salto Super Mario Bros</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('shutdown_windows_xp')">
+                    <div class="sound-title">Shutdown Windows XP</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('super_mario_bros_beedoo')">
+                    <div class="sound-title">Super Mario Bros Beedoo</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('to_be_continued')">
+                    <div class="sound-title">To Be Continued</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('tubo_di_metallo')">
+                    <div class="sound-title">Tubo di Metallo</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('what')">
+                    <div class="sound-title">'What'</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('1_000_000_000_iq')">
+                    <div class="sound-title">1,000,000,000 IQ</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('apple_pay')">
+                    <div class="sound-title">Apple Pay</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('cagatevi_addosso')">
+                    <div class="sound-title">Cagatevi Addosso</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('check_mark')">
+                    <div class="sound-title">Check Mark</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('ciao_sono_darwin')">
+                    <div class="sound-title">Ciao Sono Darwin</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('couscous_merguez')">
+                    <div class="sound-title">Couscous Merguez</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('ding')">
+                    <div class="sound-title">Ding</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('e_sti_cazzi')">
+                    <div class="sound-title">E Sti Cazzi</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('esplosione_coca_cola')">
+                    <div class="sound-title">Esplosione Coca Cola</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('fahhhhh')">
+                    <div class="sound-title">FAHHHHH</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('flauto_harry_potter')">
+                    <div class="sound-title">Flauto Harry Potter</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('indian_song')">
+                    <div class="sound-title">Indian Song</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('oh_hi_thanks_for_checking_in')">
+                    <div class="sound-title">Oh Hi, Thanks For Checking In</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('oh_my_god_wow')">
+                    <div class="sound-title">Oh My God Wow</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('oof_minecraft')">
+                    <div class="sound-title">Oof Minecraft</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('oooh_my_god')">
+                    <div class="sound-title">Oooh My God</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('rizz')">
+                    <div class="sound-title">Rizz</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('scoreggia')">
+                    <div class="sound-title">Scoreggia</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('sigma')">
+                    <div class="sound-title">Sigma</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('strange')">
+                    <div class="sound-title">Strange</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('suoneria_italian_brainrot')">
+                    <div class="sound-title">Suoneria Italian Brainrot</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('vai_a_letto')">
+                    <div class="sound-title">Vai A Letto</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('walmart_self_checkout')">
+                    <div class="sound-title">Walmart Self Checkout</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('what_wtf')">
+                    <div class="sound-title">What WTF</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('wtf_is_a_kilometer')">
+                    <div class="sound-title">WTF Is A Kilometer</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('wtf_boom')">
+                    <div class="sound-title">WTF Boom</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('well_be_right_back')">
+                    <div class="sound-title">We'll Be Right Back</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('illuminati')">
+                    <div class="sound-title">Illuminati</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('spiderman')">
+                    <div class="sound-title">Spiderman</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('splash_boostato')">
+                    <div class="sound-title">Splash Boostato</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('splash')">
+                    <div class="sound-title">Splash</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('transizione_batman')">
+                    <div class="sound-title">Transizione Batman</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('this_is_harry_potter')">
+                    <div class="sound-title">This Is Harry Potter</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('batman_epic')">
+                    <div class="sound-title">Batman Epic</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('chipi_chipi_chapa_chapa')">
+                    <div class="sound-title">Chipi Chipi Chapa Chapa</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('ciao_user')">
+                    <div class="sound-title">Ciao User</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('67_testy_crousty')">
+                    <div class="sound-title">67 Testy Crousty</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('six_seven')">
+                    <div class="sound-title">Six Seven</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('you_gotta_put_the_cd')">
+                    <div class="sound-title">You Gotta Put the CD</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('oops_esplosione')">
+                    <div class="sound-title">Oops Esplosione</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('noiiiiice')">
+                    <div class="sound-title">Noiiiiice</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('noice')">
+                    <div class="sound-title">Noice</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('sad_trumpet_1')">
+                    <div class="sound-title">Sad Trumpet 1</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('sad_trumpet_2')">
+                    <div class="sound-title">Sad Trumpet 2</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('sad_trumpet_3')">
+                    <div class="sound-title">Sad Trumpet 3</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('teresa')">
+                    <div class="sound-title">Teresa</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('berlusconi_poveri_comunisti')">
+                    <div class="sound-title">Berlusconi Poveri Comunisti</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('allarme_froci')">
+                    <div class="sound-title">Allarme Froci</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('allarme_aura')">
+                    <div class="sound-title">Allarme Aura</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('qualcuno_ha_detto')">
+                    <div class="sound-title">Qualcuno Ha Detto</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('china_ringing_phone')">
+                    <div class="sound-title">China Ringing Phone</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('stacca_stacca')">
+                    <div class="sound-title">STACCA STACCA</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('its_raining_tacos')">
+                    <div class="sound-title">It's Raining Tacos</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('im_a_genius')">
+                    <div class="sound-title">I'm a Genius</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('get_me_to_a_bathroom')">
+                    <div class="sound-title">Get Me to a Bathroom</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('meloni_errore_mio')">
+                    <div class="sound-title">Meloni Errore Mio</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('giorgia_meloni')">
+                    <div class="sound-title">Giorgia Meloni</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('renzi_game_over')">
+                    <div class="sound-title">Renzi Game Over</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('first_reaction_shock')">
+                    <div class="sound-title">First Reaction Shock</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_1')">
+                    <div class="sound-title">Germano Mosconi 1</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_2')">
+                    <div class="sound-title">Germano Mosconi 2</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_3')">
+                    <div class="sound-title">Germano Mosconi 3</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_4')">
+                    <div class="sound-title">Germano Mosconi 4</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_5')">
+                    <div class="sound-title">Germano Mosconi 5</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_6')">
+                    <div class="sound-title">Germano Mosconi 6</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_7')">
+                    <div class="sound-title">Germano Mosconi 7</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_8')">
+                    <div class="sound-title">Germano Mosconi 8</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('germano_mosconi_9')">
+                    <div class="sound-title">Germano Mosconi 9</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('villager')">
+                    <div class="sound-title">Villager</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('spongebob_fail')">
+                    <div class="sound-title">Spongebob Fail</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('john_cena')">
+                    <div class="sound-title">JOHN CENA</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('minkia_subbito')">
+                    <div class="sound-title">Minkia Subbito</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('you_are_an_idiot')">
+                    <div class="sound-title">You Are An Idiot</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('among_us_reveal')">
+                    <div class="sound-title">Among Us Reveal</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('amogus')">
+                    <div class="sound-title">Amogus</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('amogus_beatbox')">
+                    <div class="sound-title">Amogus Beatbox</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('bruh')">
+                    <div class="sound-title">Bruh</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('amogus_boostato')">
+                    <div class="sound-title">Amogus Boostato</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('putin_walking')">
+                    <div class="sound-title">Putin Walking</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('67')">
+                    <div class="sound-title">67</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('cicciogamer89_esulta_il_napoli')">
+                    <div class="sound-title">Cicciogamer89 Esulta Il Napoli</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('do_veto_more')">
+                    <div class="sound-title">Do Veto More</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('eh_volevi')">
+                    <div class="sound-title">Eh Volevi</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('emotional_damage')">
+                    <div class="sound-title">Emotional Damage</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('forza_napoli_skibidi_boppy')">
+                    <div class="sound-title">Forza Napoli Skibidi Boppy</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('hakuna_matata_ragazzi')">
+                    <div class="sound-title">Hakuna Matata Ragazzi</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('kirby_dance')">
+                    <div class="sound-title">Kirby Dance</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('kirby_dream_land_theme_song')">
+                    <div class="sound-title">Kirby Dream Land Theme Song</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('mi_piasce_voto_diesci')">
+                    <div class="sound-title">Mi Piasce Voto Diesci</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('napoli_torna_campione')">
+                    <div class="sound-title">Napoli Torna Campione</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('polaretti')">
+                    <div class="sound-title">Polaretti</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('polaretti_originale')">
+                    <div class="sound-title">Polaretti Originale</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('pronto_bisseria')">
+                    <div class="sound-title">Pronto Bisseria</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('tarantella_napoletana')">
+                    <div class="sound-title">Tarantella Napoletana</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('tg1')">
+                    <div class="sound-title">TG1</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('what_the_hell')">
+                    <div class="sound-title">What The Hell</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('hanno_ucciso')">
+                    <div class="sound-title">Hanno Ucciso</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('io_sono_giorgia')">
+                    <div class="sound-title">Io Sono Giorgia</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('ah_non_lo_so_io')">
+                    <div class="sound-title">Ah Non Lo So Io</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('carte_co_la_colla')">
+                    <div class="sound-title">Carte Co La Colla</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('chi_e_quel_mona')">
+                    <div class="sound-title">Chi E Quel Mona</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('dio_bubu')">
+                    <div class="sound-title">Dio Bubu</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('ma_che_oooh')">
+                    <div class="sound-title">Ma Che Oooh</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('no_no_vai_in_mona')">
+                    <div class="sound-title">No No Vai In Mona</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('tamburo_battuta')">
+                    <div class="sound-title">Battuta</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('tamburo_suspense')">
+                    <div class="sound-title">Tamburo Suspense</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('ti_devo_dire')">
+                    <div class="sound-title">Ti Devo Dire</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('lerolerolero')">
+                    <div class="sound-title">lerolerolero</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('kaboom_yes_rico')">
+                    <div class="sound-title">Kaboom! Yes Rico, kaboom</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('jugenmujugenmwtf')">
+                    <div class="sound-title">Jugenmujugenmwtf</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('andiamo_ragazzi')">
+                    <div class="sound-title">Andiamo Ragazzi</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('sere_nere')">
+                    <div class="sound-title">Sere Nere</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('porco_dio_cane_remix')">
+                    <div class="sound-title">Porco dio cane remix</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('scusatemi_eh')">
+                    <div class="sound-title">Scusatemi eh</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('scary_sound')">
+                    <div class="sound-title">Scary sound</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('le_tagliatelle_del_porco_dio')">
+                    <div class="sound-title">Le tagliatelle del porco dio</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('hanno_ucciso_2')">
+                    <div class="sound-title">Hanno ucciso 2</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('sono_giapponese')">
+                    <div class="sound-title">Sono giapponese</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('whatsapp')">
+                    <div class="sound-title">WhatsApp</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('sei_un_coglione')">
+                    <div class="sound-title">Sei un coglione</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('suoneria_huawei')">
+                    <div class="sound-title">Suoneria Huawei</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('hang_up_call')">
+                    <div class="sound-title">Hang up call</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('allahu_akbar')">
+                    <div class="sound-title">Allahu akbar</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('never_gonna_give_you_up')">
+                    <div class="sound-title">Never gonna give you up</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+                <div class="sound-card" onclick="playSound('rickroll')">
+                    <div class="sound-title">Rickroll</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+            </div>
+
+        </section>
 
     </main>
+
 
     <script>
         const audioPlayer = new Audio();
