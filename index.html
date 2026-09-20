@@ -2,7 +2,6 @@
 <html lang="it">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sound Dashboard</title>
@@ -21,7 +20,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 2rem;
+            padding: 2rem 1rem 120px 1rem;
         }
 
         header {
@@ -83,6 +82,7 @@
             justify-content: center;
             align-items: center;
             min-height: 140px;
+            user-select: none;
         }
 
         .sound-card:hover {
@@ -93,6 +93,14 @@
 
         .sound-card:active {
             transform: translateY(1px);
+        }
+
+        .sound-card.hidden {
+            display: none !important;
+        }
+
+        .sound-section.hidden {
+            display: none !important;
         }
 
         .sound-title {
@@ -106,24 +114,160 @@
             font-size: 1.5rem;
             color: #00ff88;
         }
-    </style>
 
+        .sticky-search-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            width: 90%;
+            max-width: 800px;
+            background: rgba(30, 30, 36, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 2px solid #2a2a32;
+            border-radius: 50px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: border-color 0.2s ease;
+        }
+
+        .sticky-search-bar:focus-within {
+            border-color: #00ff88;
+        }
+
+        .search-icon {
+            color: #00ff88;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #ffffff;
+            font-size: 1rem;
+            min-width: 60px;
+        }
+
+        .search-input::placeholder {
+            color: #8a8a93;
+        }
+
+        .shortcut-badge {
+            background: #2a2a32;
+            color: #8a8a93;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .count-badge {
+            background: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .bar-divider {
+            width: 1px;
+            height: 24px;
+            background: #2a2a32;
+        }
+
+        .controls-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .volume-slider {
+            width: 70px;
+            accent-color: #00ff88;
+            cursor: pointer;
+        }
+
+        .stop-button {
+            background: #ff4757;
+            border: none;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: transform 0.1s ease;
+        }
+
+        .stop-button:active {
+            transform: scale(0.9);
+        }
+
+        .no-results {
+            display: none;
+            text-align: center;
+            color: #8a8a93;
+            font-size: 1.2rem;
+            padding: 3rem 1rem;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .shortcut-badge {
+                display: none;
+            }
+			
+			.count-badge {
+				display: none;
+			}
+
+            .volume-slider {
+                width: 50px;
+            }
+
+            .sticky-search-bar {
+                width: 95%;
+                padding: 6px 12px;
+                gap: 8px;
+                bottom: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
     <header>
-
         <h1>Sound Dashboard</h1>
         <p>Clicca su una tessera per riprodurre l'effetto sonoro</p>
-
     </header>
 
     <main class="dashboard-container">
 
         <section class="sound-section">
-
-            <h2 class="section-title">Bestemmie corner (feat. Germano Mosconi)</h2>
+            
+			<h2 class="section-title">Bestemmie corner (feat. Germano Mosconi)</h2>
 
             <div class="dashboard-grid">
 
@@ -988,11 +1132,29 @@
                 </div>
 
             </div>
-
+			
         </section>
+
+        <div id="noResults" class="no-results">Nessun suono trovato</div>
 
     </main>
 
+    <div class="sticky-search-bar">
+        <div class="search-icon">🔍</div>
+        <input type="text" id="searchInput" class="search-input" placeholder="Cerca suoni..." autocomplete="off">
+        <span class="shortcut-badge">CTRL+K</span>
+        <span id="soundCounter" class="count-badge">0 suoni</span>
+        
+        <div class="bar-divider"></div>
+
+        <div class="controls-group">
+            <div class="volume-container">
+                <span style="font-size: 0.9rem;">🔊</span>
+                <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.05" value="1">
+            </div>
+            <button class="stop-button" onclick="stopAudio()" title="Fermare audio">⏹</button>
+        </div>
+    </div>
 
     <script>
         const audioPlayer = new Audio();
@@ -1002,8 +1164,63 @@
             audioPlayer.currentTime = 0;
             audioPlayer.play();
         }
-    </script>
 
+        function stopAudio() {
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+        }
+
+        const volumeControl = document.getElementById('volumeControl');
+        volumeControl.addEventListener('input', function(e) {
+            audioPlayer.volume = parseFloat(e.target.value);
+        });
+
+        const searchInput = document.getElementById('searchInput');
+        const soundCounter = document.getElementById('soundCounter');
+        const noResults = document.getElementById('noResults');
+
+        function filterCards() {
+            const query = searchInput.value.toLowerCase().trim();
+            const sections = document.querySelectorAll('.sound-section');
+            let totalVisibleSounds = 0;
+
+            sections.forEach(section => {
+                const cards = section.querySelectorAll('.sound-card');
+                let visibleInSection = 0;
+
+                cards.forEach(card => {
+                    const title = card.querySelector('.sound-title').textContent.toLowerCase();
+                    if (title.includes(query)) {
+                        card.classList.remove('hidden');
+                        visibleInSection++;
+                        totalVisibleSounds++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                if (visibleInSection === 0) {
+                    section.classList.add('hidden');
+                } else {
+                    section.classList.remove('hidden');
+                }
+            });
+
+            soundCounter.textContent = `${totalVisibleSounds} ${totalVisibleSounds === 1 ? 'suono' : 'suoni'}`;
+            noResults.style.display = totalVisibleSounds === 0 ? 'block' : 'none';
+        }
+
+        searchInput.addEventListener('input', filterCards);
+
+        window.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        filterCards();
+    </script>
 </body>
 
 </html>
