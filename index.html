@@ -237,10 +237,10 @@
             .shortcut-badge {
                 display: none;
             }
-			
-			.count-badge {
-				display: none;
-			}
+
+            .count-badge {
+                display: none;
+            }
 
             .volume-slider {
                 width: 50px;
@@ -266,8 +266,8 @@
     <main class="dashboard-container">
 
         <section class="sound-section">
-            
-			<h2 class="section-title">Bestemmie corner (feat. Germano Mosconi)</h2>
+
+            <h2 class="section-title">Bestemmie corner (feat. Germano Mosconi)</h2>
 
             <div class="dashboard-grid">
 
@@ -398,6 +398,21 @@
 
                 <div class="sound-card" onclick="playSound('hanno_ucciso_2')">
                     <div class="sound-title">Hanno ucciso 2</div>
+                    <div class="play-icon">▶</div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="sound-section">
+
+            <h2 class="section-title">Il repertorio di Germano Mosconi</h2>
+
+            <div class="dashboard-grid">
+
+                <div class="sound-card" onclick="playSound('cose_che_e_caduto_dallaltra_parte')">
+                    <div class="sound-title">Cos'è che è caduto dall'altra parte dio</div>
                     <div class="play-icon">▶</div>
                 </div>
 
@@ -1132,7 +1147,7 @@
                 </div>
 
             </div>
-			
+
         </section>
 
         <div id="noResults" class="no-results">Nessun suono trovato</div>
@@ -1144,7 +1159,7 @@
         <input type="text" id="searchInput" class="search-input" placeholder="Cerca suoni..." autocomplete="off">
         <span class="shortcut-badge">CTRL+K</span>
         <span id="soundCounter" class="count-badge">0 suoni</span>
-        
+
         <div class="bar-divider"></div>
 
         <div class="controls-group">
@@ -1171,7 +1186,7 @@
         }
 
         const volumeControl = document.getElementById('volumeControl');
-        volumeControl.addEventListener('input', function(e) {
+        volumeControl.addEventListener('input', function (e) {
             audioPlayer.volume = parseFloat(e.target.value);
         });
 
@@ -1212,7 +1227,7 @@
 
         searchInput.addEventListener('input', filterCards);
 
-        window.addEventListener('keydown', function(e) {
+        window.addEventListener('keydown', function (e) {
             if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
                 e.preventDefault();
                 searchInput.focus();
