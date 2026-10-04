@@ -23,6 +23,189 @@
             padding: 2rem 1rem 120px 1rem;
         }
 
+        .hamburger-button {
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            z-index: 1002;
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            background: #1e1e24;
+            border: 1px solid #3a3a44;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        .hamburger-button.menu-open {
+            display: none;
+        }
+
+        .hamburger-button svg,
+        .sidebar-close svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+        }
+
+        .sidebar-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .sidebar-backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1001;
+            width: min(360px, 88vw);
+            padding: 24px 20px;
+            overflow-y: auto;
+            background: #1e1e24;
+            border-right: 1px solid #3a3a44;
+            box-shadow: 12px 0 40px rgba(0, 0, 0, 0.35);
+            transform: translateX(-105%);
+            transition: transform 0.25s ease;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar-header,
+        .sidebar-control-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .sidebar-header {
+            margin-bottom: 28px;
+        }
+
+        .sidebar h2 {
+            color: #ffffff;
+            font-size: 1.25rem;
+        }
+
+        .sidebar h3 {
+            margin: 24px 0 10px;
+            color: #8a8a93;
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .sidebar-close,
+        .sidebar-control,
+        .sidebar-section-link {
+            color: #e1e1e6;
+            background: #2a2a32;
+            border: 1px solid #3a3a44;
+            border-radius: 8px;
+        }
+
+        .sidebar-close {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            cursor: pointer;
+        }
+
+        .sidebar-control-row {
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar-control-row label {
+            font-size: 0.9rem;
+        }
+
+        .sidebar-control {
+            padding: 7px 9px;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .boost-db-input {
+            width: 68px;
+            padding: 6px 8px;
+            color: inherit;
+            background: transparent;
+            border: 1px solid #5a5a66;
+            border-radius: 6px;
+            font: inherit;
+            text-align: right;
+        }
+
+        .boost-db-input::-webkit-inner-spin-button,
+        .boost-db-input::-webkit-outer-spin-button {
+            appearance: none;
+            margin: 0;
+        }
+
+        .boost-db-input {
+            appearance: textfield;
+            -moz-appearance: textfield;
+        }
+
+        .boost-db-input:focus {
+            outline: 2px solid #00ff88;
+            outline-offset: 1px;
+        }
+
+        .sidebar-section-list {
+            display: grid;
+            gap: 8px;
+        }
+
+        .sidebar-section-link {
+            width: 100%;
+            padding: 10px 12px;
+            text-align: left;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .sidebar-section-link:hover,
+        .sidebar-control:hover,
+        .sidebar-close:hover,
+        .hamburger-button:hover {
+            border-color: #00ff88;
+        }
+
+        .sidebar-copy {
+            color: #8a8a93;
+            font-size: 0.85rem;
+            line-height: 1.55;
+        }
+
+        .sidebar-copy a {
+            color: #00ff88;
+        }
+
         header {
             text-align: center;
             margin-bottom: 3rem;
@@ -343,6 +526,43 @@
 </head>
 
 <body>
+
+    <button id="hamburgerButton" class="hamburger-button" type="button" aria-label="Apri menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+    <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+    <aside id="sidebar" class="sidebar" aria-label="Menu principale" aria-hidden="true">
+        <div class="sidebar-header">
+            <h2>Sound Dashboard</h2>
+            <button id="sidebarClose" class="sidebar-close" type="button" aria-label="Chiudi menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18"></path>
+                </svg>
+            </button>
+        </div>
+
+        <h3>Impostazioni</h3>
+
+        <div class="sidebar-control-row">
+            <label for="boostDbInput">Boost</label>
+            <span>
+                <input id="boostDbInput" class="boost-db-input" type="number" min="0" max="60" step="1" value="33">
+                <span>dB</span>
+            </span>
+        </div>
+
+        <h3>Sezioni</h3>
+        <nav id="sectionNavigation" class="sidebar-section-list" aria-label="Sezioni dei suoni"></nav>
+
+        <h3>Informazioni</h3>
+        <p class="sidebar-copy">
+            Developer del sito: <a href="https://github.com/ChampyTech">ChampyTech</a><br>
+            Per migliorare il sito, aggiungi un sound effect tramite <a
+                href="https://github.com/ChampyTech/sound-dashboard/issues/new/choose">questo link</a>.
+        </p>
+    </aside>
 
     <header>
         <h1>Sound Dashboard</h1>
@@ -701,7 +921,7 @@
             },
         ];
         const audioPlayer = new Audio();
-        const amplifyGain = 10 ** (33 / 20);
+        let boostDb = 33;
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
         let audioContext;
         let sourceNode;
@@ -713,6 +933,16 @@
         const noResults = document.getElementById('noResults');
         const volumeControl = document.getElementById('volumeControl');
         const boostButton = document.getElementById('boostButton');
+        const boostDbInput = document.getElementById('boostDbInput');
+        const hamburgerButton = document.getElementById('hamburgerButton');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarClose = document.getElementById('sidebarClose');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
+        const sectionNavigation = document.getElementById('sectionNavigation');
+
+        function getAmplifyGain() {
+            return 10 ** (boostDb / 20);
+        }
 
         function setupAudioGraph() {
             if (audioContext) {
@@ -732,24 +962,62 @@
 
         function updateAudioEffects() {
             if (gainNode) {
-                gainNode.gain.value = Number.parseFloat(volumeControl.value) * (boosted ? amplifyGain : 1);
+                gainNode.gain.value = Number.parseFloat(volumeControl.value) * (boosted ? getAmplifyGain() : 1);
             }
+        }
+
+        function setSidebarOpen(isOpen) {
+            if (isOpen) {
+                sidebar.inert = false;
+                sidebar.removeAttribute('aria-hidden');
+                sidebar.classList.add('open');
+                sidebarBackdrop.classList.add('open');
+                hamburgerButton.classList.add('menu-open');
+                hamburgerButton.setAttribute('aria-expanded', 'true');
+                sidebarClose.focus();
+                return;
+            }
+
+            sidebar.classList.remove('open');
+            sidebarBackdrop.classList.remove('open');
+            hamburgerButton.classList.remove('menu-open');
+            hamburgerButton.focus();
+            sidebar.inert = true;
+            sidebar.setAttribute('aria-hidden', 'true');
+            hamburgerButton.setAttribute('aria-expanded', 'false');
+        }
+
+        function renderSectionNavigation() {
+            sectionNavigation.replaceChildren();
+
+            soundCatalogBySection.forEach((sectionData, index) => {
+                const link = document.createElement('button');
+                link.className = 'sidebar-section-link';
+                link.type = 'button';
+                link.textContent = sectionData.title;
+                link.addEventListener('click', () => {
+                    document.getElementById(`sound-section-${index}`)?.scrollIntoView({ behavior: 'smooth' });
+                    setSidebarOpen(false);
+                });
+                sectionNavigation.append(link);
+            });
         }
 
         function updateBoostButton() {
             boostButton.classList.toggle('active', boosted);
             boostButton.setAttribute('aria-pressed', String(boosted));
-            boostButton.style.background = boosted ? 'rgba(255, 193, 7, 0.2)' : '';
-            boostButton.style.borderColor = boosted ? '#ffc107' : '';
-            boostButton.style.color = boosted ? '#ffc107' : '';
+            boostButton.title = `Amplifica il suono di ${boostDb} dB`;
+            boostButton.textContent = 'Boost';
+            boostButton.style.background = boosted ? 'rgba(255, 193, 7, 0.35)' : '';
         }
 
         function renderSoundSections() {
             soundSectionsContainer.replaceChildren();
 
-            soundCatalogBySection.forEach((sectionData) => {
+            soundCatalogBySection.forEach((sectionData, index) => {
                 const section = document.createElement('section');
                 section.className = 'sound-section';
+                section.id = `sound-section-${index}`;
 
                 const heading = document.createElement('h2');
                 heading.className = 'section-title';
@@ -794,6 +1062,8 @@
                 section.append(heading, grid);
                 soundSectionsContainer.append(section);
             });
+
+            renderSectionNavigation();
         }
 
         async function playSound(soundName) {
@@ -814,6 +1084,17 @@
         volumeControl.addEventListener('input', () => {
             updateAudioEffects();
         });
+
+        boostDbInput.addEventListener('input', () => {
+            boostDb = Math.min(60, Math.max(0, Number.parseFloat(boostDbInput.value) || 0));
+            boostDbInput.value = boostDb;
+            updateBoostButton();
+            updateAudioEffects();
+        });
+
+        hamburgerButton.addEventListener('click', () => setSidebarOpen(true));
+        sidebarClose.addEventListener('click', () => setSidebarOpen(false));
+        sidebarBackdrop.addEventListener('click', () => setSidebarOpen(false));
 
         boostButton.addEventListener('click', () => {
             boosted = !boosted;
@@ -848,6 +1129,8 @@
         }
 
         renderSoundSections();
+        sidebar.inert = true;
+        updateBoostButton();
         searchInput.addEventListener('input', filterCards);
         filterCards();
 
