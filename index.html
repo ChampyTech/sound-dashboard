@@ -242,6 +242,26 @@
             cursor: pointer;
         }
 
+        .boost-button {
+            background: #2a2a32;
+            border: 1px solid #4a4a55;
+            color: #e1e1e6;
+            border-radius: 16px;
+            padding: 6px 10px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .boost-button:hover,
+        .boost-button.active {
+            background: rgba(255, 193, 7, 0.2);
+            border-color: #ffc107;
+            color: #ffc107;
+        }
+
         .stop-button {
             background: #ff4757;
             border: none;
@@ -340,6 +360,9 @@
                 </span>
                 <input type="range" id="volumeControl" class="volume-slider" min="0" max="1" step="0.05" value="1">
             </div>
+            <button id="boostButton" class="boost-button" type="button" aria-pressed="false" title="Amplifica di 33 dB">
+                Boosted
+            </button>
             <button class="stop-button" onclick="stopAudio()" title="Ferma l'audio" aria-label="Ferma l'audio">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <rect x="7" y="7" width="10" height="10" rx="1"></rect>
@@ -658,10 +681,43 @@
             },
         ];
         const audioPlayer = new Audio();
+        const boostGain = 10 ** (33 / 20);
+        let audioContext;
+        let sourceNode;
+        let gainNode;
+        let boosted = false;
         const soundSectionsContainer = document.getElementById('soundSections');
         const searchInput = document.getElementById('searchInput');
         const soundCounter = document.getElementById('soundCounter');
         const noResults = document.getElementById('noResults');
+        const volumeControl = document.getElementById('volumeControl');
+        const boostButton = document.getElementById('boostButton');
+
+        function setupAudioGraph() {
+            if (audioContext) {
+                return;
+            }
+
+            audioContext = new AudioContext();
+            sourceNode = audioContext.createMediaElementSource(audioPlayer);
+            gainNode = audioContext.createGain();
+            sourceNode.connect(gainNode).connect(audioContext.destination);
+            updateGain();
+        }
+
+        function updateGain() {
+            if (gainNode) {
+                gainNode.gain.value = Number.parseFloat(volumeControl.value) * (boosted ? boostGain : 1);
+            }
+        }
+
+        function updateBoostButton() {
+            boostButton.classList.toggle('active', boosted);
+            boostButton.setAttribute('aria-pressed', String(boosted));
+            boostButton.style.background = boosted ? 'rgba(255, 193, 7, 0.2)' : '';
+            boostButton.style.borderColor = boosted ? '#ffc107' : '';
+            boostButton.style.color = boosted ? '#ffc107' : '';
+        }
 
         function renderSoundSections() {
             soundSectionsContainer.replaceChildren();
@@ -702,6 +758,10 @@
         }
 
         function playSound(soundName) {
+            setupAudioGraph();
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
             audioPlayer.src = `sounds/${soundName}.mp3`;
             audioPlayer.currentTime = 0;
             audioPlayer.play();
@@ -712,8 +772,14 @@
             audioPlayer.currentTime = 0;
         }
 
-        document.getElementById('volumeControl').addEventListener('input', (event) => {
-            audioPlayer.volume = Number.parseFloat(event.target.value);
+        volumeControl.addEventListener('input', () => {
+            updateGain();
+        });
+
+        boostButton.addEventListener('click', () => {
+            boosted = !boosted;
+            updateBoostButton();
+            updateGain();
         });
 
         function filterCards() {
