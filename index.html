@@ -124,6 +124,20 @@
             color: #e1e1e6;
         }
 
+        .sound-duration {
+            color: #8a8a93;
+            font-size: 0.8rem;
+            line-height: 1.2;
+            margin-top: 0.7rem;
+            margin-bottom: 0;
+            padding: 0.25rem 0.55rem;
+            min-width: 46px;
+            min-height: 22px;
+            border: 1px solid #34343d;
+            border-radius: 999px;
+            background: rgba(42, 42, 50, 0.65);
+        }
+
         .play-icon {
             font-size: 1.5rem;
             color: #00ff88;
@@ -754,11 +768,25 @@
                     title.className = 'sound-title';
                     title.textContent = sound.title;
 
+                    const duration = document.createElement('div');
+                    duration.className = 'sound-duration';
+                    duration.textContent = '...';
+
+                    const metadataAudio = new Audio();
+                    metadataAudio.preload = 'metadata';
+                    metadataAudio.addEventListener('loadedmetadata', () => {
+                        duration.textContent = `${metadataAudio.duration.toFixed(1)} s`;
+                    });
+                    metadataAudio.addEventListener('error', (e) => {
+                        duration.textContent = 'durata non disponibile';
+                    });
+                    metadataAudio.src = `sounds/${sound.file}.mp3`;
+
                     const playIcon = document.createElement('div');
                     playIcon.className = 'play-icon';
                     playIcon.textContent = '▶';
 
-                    card.append(title, playIcon);
+                    card.append(title, playIcon, duration);
                     card.addEventListener('click', () => playSound(sound.file));
                     grid.append(card);
                 });
